@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Guides and reference for the Bloxd.io Code Tool visual JavaScript editor.">
+    <meta name="theme-color" content="#0b0d0e">
+    <title>Documentation — BloxdBlocks</title>
+    <link rel="icon" href="../assets/bloxdblocks.favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="docs.css">
+</head>
+<body>
+    <header class="docs-header">
+        <a class="brand" href="../index.html" aria-label="BloxdBlocks">
+            <img src="../assets/bloxdblocks.logo.png" alt="BloxdBlocks">
+        </a>
+        <nav class="header-links" aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a class="editor-link" href="../bloxdcodetool.html">Open editor <span aria-hidden="true">→</span></a>
+        </nav>
+    </header>
+
+    <div class="docs-layout">
+        <aside class="sidebar" aria-label="Documentation navigation">
+            <label class="search-label" for="docs-search">Search docs</label>
+            <div class="search-wrap">
+                <input id="docs-search" type="search" placeholder="Search guides..." autocomplete="off">
+                <kbd>Ctrl K</kbd>
+            </div>
+            <nav class="side-nav" id="side-nav">
+                <a href="#welcome" data-section-link>Welcome</a>
+                <span class="nav-group">Getting started</span>
+                <a href="#first-project" data-section-link>Build your first project</a>
+                <a href="#workspace" data-section-link>Workspace basics</a>
+                <span class="nav-group">Guides</span>
+                <a href="#events" data-section-link>Events and callbacks</a>
+                <a href="#blocks" data-section-link>Blocks and API</a>
+                <a href="#variables-functions" data-section-link>Variables and functions</a>
+                <a href="#save-load" data-section-link>Save and load .bb files</a>
+                <span class="nav-group">Reference</span>
+                <a href="#generated-code" data-section-link>Generated JavaScript</a>
+                <a href="#troubleshooting" data-section-link>Troubleshooting</a>
+                <a href="#official-docs" data-section-link>Official Bloxd docs</a>
+            </nav>
+            <p class="search-empty" id="search-empty" hidden>No matching documentation sections.</p>
+        </aside>
+
+        <main class="doc-content">
+            <section id="welcome" data-doc-section>
+                <div class="eyebrow">Bloxd.io Code Tool</div>
+                <h1>Documentation</h1>
+                <p class="lead">Build Bloxd.io world code visually. Connect events, API methods, and logic blocks, then use the generated JavaScript in your world.</p>
+                <div class="callout">
+                    <strong>New here?</strong>
+                    <span>Start with <a href="#first-project">Build your first project</a>, then explore the guides and references below.</span>
+                </div>
+                <h2>Explore the docs</h2>
+                <div class="topic-grid">
+                    <a class="topic-card" href="#events"><span class="card-icon">01</span><strong>Events</strong><span>Choose when your world code runs.</span></a>
+                    <a class="topic-card" href="#blocks"><span class="card-icon">02</span><strong>Blocks and API</strong><span>Build actions, expressions, and conditions.</span></a>
+                    <a class="topic-card" href="#save-load"><span class="card-icon">03</span><strong>Workspace files</strong><span>Save and share projects as .bb files.</span></a>
+                </div>
+            </section>
+
+            <section id="first-project" data-doc-section>
+                <h2>Build your first project</h2>
+                <ol class="steps">
+                    <li><span><strong>Open the editor.</strong> Use the button in the header to launch the visual builder.</span></li>
+                    <li><span><strong>Add an event.</strong> Choose an event such as Player Join and drag it onto the workspace.</span></li>
+                    <li><span><strong>Add behavior.</strong> Put an action in the event body and fill in its inputs. Use reporters and operators for values.</span></li>
+                    <li><span><strong>Use your code.</strong> Review the generated JavaScript and copy it into your Bloxd.io world code.</span></li>
+                </ol>
+                <p class="note">The editor generates source code; it does not connect to your world or run the code for you.</p>
+            </section>
+
+            <section id="workspace" data-doc-section>
+                <h2>Workspace basics</h2>
+                <p>The editor has three main areas:</p>
+                <ul>
+                    <li><strong>Category rail and block list:</strong> select a category to browse its blocks, or search across block names and descriptions.</li>
+                    <li><strong>Workspace:</strong> arrange event blocks and attach actions, controls, and values. Use the zoom buttons or mouse wheel to zoom; drag the open canvas to pan.</li>
+                    <li><strong>Code and output:</strong> generated JavaScript updates as you make changes. Hover over toolbox blocks for a short description.</li>
+                </ul>
+            </section>
+
+            <section id="events" data-doc-section>
+                <h2>Events and callbacks</h2>
+                <p>Green event blocks define callback functions. Their names and parameter reporters match the editor's callback catalog. Place action and control blocks in the event body to run them when the callback fires.</p>
+                <p>Callback availability, arguments, and return behavior are defined by Bloxd. Check the <a href="https://bloxd.io/docs/callbacks" target="_blank" rel="noopener noreferrer">official callback reference</a> before relying on a callback.</p>
+                <div class="code-card"><code>onPlayerJoin = (playerId) =&gt; {
+  api.sendMessage(playerId, "Welcome!");
+};</code></div>
+            </section>
+
+            <section id="blocks" data-doc-section>
+                <h2>Blocks and API</h2>
+                <p>Blocks are organized by category. Actions call API methods or perform operations; reporter blocks produce values that can be nested into compatible sockets. Boolean operators produce conditions, while control blocks contain sequences of actions.</p>
+                <ul>
+                    <li><strong>Events:</strong> callback entry points such as Player Join and Tick.</li>
+                    <li><strong>Game API:</strong> methods from the editor's Bloxd API catalog. Each block lists its arguments, and its description links to the method documentation.</li>
+                    <li><strong>Logic and operators:</strong> if, if / else, repeat, comparisons, boolean logic, arithmetic, and vector helpers.</li>
+                    <li><strong>Custom Styled Text and Item Operator:</strong> helpers for building styled text and item attribute values.</li>
+                </ul>
+                <p>API blocks are a convenience for composing code, not a guarantee that a method or argument is accepted by the current game version. See the <a href="https://bloxd.io/docs/api-reference" target="_blank" rel="noopener noreferrer">official API reference</a>.</p>
+            </section>
+
+            <section id="variables-functions" data-doc-section>
+                <h2>Variables and functions</h2>
+                <p>Create variables in the Variable category. Each variable adds a reporter, a set block, and a change block. Right-click a created variable in the toolbox to delete it; its blocks and generated declaration are removed from the workspace.</p>
+                <p>Create custom functions in the Function category. The category provides a function definition block and a call block. Place a definition in the workspace to generate its body; a call without a placed definition generates an empty function stub.</p>
+            </section>
+
+            <section id="save-load" data-doc-section>
+                <h2>Save and load .bb files</h2>
+                <p>Use <strong>SAVE</strong> to download your complete project as a <code>.bb</code> (Bloxd Block) file. The file stores the blocks and their connections, input values, workspace positions and zoom, plus user-created variables and functions.</p>
+                <p>Use <strong>LOAD</strong> to choose a <code>.bb</code> file from your device. Loading replaces the current workspace with the saved project. Keep the file somewhere you can find it; the editor does not upload or sync it.</p>
+                <div class="callout"><strong>Tip</strong><span>A .bb file is a project file for this editor, not JavaScript source. Copy the generated code from the code panel when you want to use it in a world.</span></div>
+            </section>
+
+            <section id="generated-code" data-doc-section>
+                <h2>Generated JavaScript</h2>
+                <p>The code panel translates your workspace into JavaScript. Expressions entered in expression inputs are emitted as code; ordinary inputs are converted to simple JavaScript values. Inspect generated expressions and arguments before using them in a world.</p>
+                <p>Use the official <a href="https://bloxd.io/docs" target="_blank" rel="noopener noreferrer">Bloxd documentation</a> for current runtime behavior and API details.</p>
+            </section>
+
+            <section id="troubleshooting" data-doc-section>
+                <h2>Troubleshooting</h2>
+                <details>
+                    <summary>A block will not attach to an input</summary>
+                    <p>Only compatible value shapes fit a socket. Statement blocks belong in event or function bodies, and reporter or boolean blocks fit value inputs.</p>
+                </details>
+                <details>
+                    <summary>My .bb file does not load</summary>
+                    <p>Confirm that you selected a valid .bb file exported by the editor. An invalid, unsupported, or damaged file is rejected without replacing the open workspace.</p>
+                </details>
+                <details>
+                    <summary>The generated code does not work in my world</summary>
+                    <p>Check that the callback and API method exist in the current Bloxd reference, then verify every argument and expression. The editor does not execute or validate code against the game.</p>
+                </details>
+            </section>
+
+            <section id="official-docs" data-doc-section>
+                <h2>Official Bloxd docs</h2>
+                <p>This editor is a community-built visual code tool. The official references are the source of truth for game behavior:</p>
+                <ul class="reference-links">
+                    <li><a href="https://bloxd.io/docs/getting-started" target="_blank" rel="noopener noreferrer">Getting started</a></li>
+                    <li><a href="https://bloxd.io/docs/callbacks" target="_blank" rel="noopener noreferrer">Callbacks</a></li>
+                    <li><a href="https://bloxd.io/docs/api-reference" target="_blank" rel="noopener noreferrer">API reference</a></li>
+                    <li><a href="https://bloxd.io/docs/how-to" target="_blank" rel="noopener noreferrer">How-tos</a></li>
+                </ul>
+                <p class="updated">Bloxd.io Code Tool documentation</p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const search = document.getElementById('docs-search');
+        const sections = Array.from(document.querySelectorAll('[data-doc-section]'));
+        const links = Array.from(document.querySelectorAll('[data-section-link]'));
+        const emptyMessage = document.getElementById('search-empty');
+
+        function filterDocs() {
+            const query = search.value.trim().toLowerCase();
+            let visibleCount = 0;
+            sections.forEach(section => {
+                const visible = !query || section.textContent.toLowerCase().includes(query);
+                section.hidden = !visible;
+                if (visible) visibleCount++;
+            });
+            links.forEach(link => {
+                const section = document.querySelector(link.getAttribute('href'));
+                link.hidden = Boolean(query) && (!section || section.hidden);
+            });
+            emptyMessage.hidden = visibleCount > 0;
+        }
+
+        search.addEventListener('input', filterDocs);
+        document.addEventListener('keydown', event => {
+            if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+                event.preventDefault();
+                search.focus();
+            }
+            if (event.key === 'Escape' && document.activeElement === search) {
+                search.value = '';
+                filterDocs();
+                search.blur();
+            }
+        });
+    </script>
+</body>
+</html>

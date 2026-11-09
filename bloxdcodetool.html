@@ -1,0 +1,94 @@
+<!-- START OF FILE: Neon Scratch V7.0.0 - Tutorial & Examples -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BloxdBlocks</title>
+    <link rel="stylesheet" href="bloxdcodetool.css">
+    <link rel="icon" href="assets/bloxdblocks.favicon.ico" type="image/x-icon">
+</head>
+<body>
+<header>
+    <span><img src="assets/bloxdblocks.logo.png" alt="BloxdBlocks"></span>
+    <div class="header-btn-group">
+        <a class="button secondary" href="docs/docs.html">📖 Docs</a>
+        <button class="secondary" onclick="showExamples()">💡 Examples</button>
+        <button class="secondary" onclick="startTutorial()">❓ Help</button>
+        <button onclick="saveWorkspace()" style="background:var(--neon-blue); color:black;">💾 SAVE</button>
+        <button onclick="loadWorkspace()" style="background:var(--neon-orange); color:black;">📂 LOAD</button>
+        <button id="runBtn">▶ START</button>
+    </div>
+</header>
+<input id="workspace-file-input" type="file" accept=".bb,application/json" hidden aria-label="Choose a Bloxd Block workspace file">
+
+<div class="main">
+    <div id="toolbox">
+        <input id="toolbox-search" type="search" placeholder="Search blocks and API methods" aria-label="Search blocks and API methods">
+        <div class="toolbox-layout">
+            <nav id="toolbox-categories" aria-label="Block categories"></nav>
+            <div id="toolbox-category-panels"></div>
+        </div>
+    </div>
+    
+    <div id="workspace">
+        <div id="block-canvas"></div>
+        <div id="zoom-controls">
+            <button onclick="changeZoom(0.1)">+</button>
+            <button onclick="resetZoom()">=</button>
+            <button onclick="changeZoom(-0.1)">-</button>
+        </div>
+    </div>
+
+    <div id="right-panel">
+        <div id="editor-half">
+            <div id="editor-label">CODE</div>
+            <div id="code-container"><textarea id="js-code"></textarea></div>
+        </div>
+        <div id="bottom-half">
+            <div id="console-output">
+                /* OUTPUT CONSOLE */<br>
+                /* Hover over blocks to see what they do. */
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TUTORIAL MODAL -->
+<div id="tutorial-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header" id="tut-title">Welcome!</div>
+        <div class="modal-body" id="tut-body">
+            Welcome to BloxdScratch (BloxdCodeTool)! This tool allows you to create mods for Bloxd.io without writing code.<br><br>
+            Let's learn the basics in 3 steps.
+        </div>
+        <div class="modal-footer">
+            <button class="secondary" onclick="closeTutorial()">Skip</button>
+            <button onclick="nextTutorialStep()" id="tut-next-btn">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- EXAMPLES MODAL -->
+<div id="examples-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">Load Example</div>
+        <div class="modal-body">
+            <button class="example-btn" onclick="loadExample('welcome')">👋 Welcome Message (onJoin)</button>
+            <button class="example-btn" onclick="loadExample('lava')">🔥 Kill Floor (Lava Check)</button>
+            <button class="example-btn" onclick="loadExample('jump')">🚀 Super Jump (onJump)</button>
+        </div>
+        <div class="modal-footer">
+            <button class="secondary" onclick="document.getElementById('examples-modal').style.display='none'">Close</button>
+        </div>
+    </div>
+</div>
+
+<div id="highlight-box" class="highlight-ring" style="display:none;"></div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+<script src="bloxdcodetool.js"></script>
+</body>
+</html>

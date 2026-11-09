@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#070a09">
+    <meta name="description" content="Build Bloxd.io world code visually with draggable blocks for events, game API methods, operators, and more.">
+    <title>BloxdBlocks — Build your world, block by block</title>
+    <link rel="icon" href="assets/bloxdblocks.favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="shell topbar">
+        <a class="brand" href="index.html" aria-label="Bloxd.io Code Tool home">
+            <img src="assets/bloxdblocks.logo.png" alt="BloxdBlocks">
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+            <a class="docs-link" href="docs/docs.html">Docs</a>
+            <a class="button" href="bloxdcodetool.html">Open the editor <span aria-hidden="true">→</span></a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="shell hero">
+            <div>
+                <div class="eyebrow">Visual world-code builder</div>
+                <h1>Build your world.<br><span>Block by block.</span></h1>
+                <p class="hero-copy">Create Bloxd.io world code with a visual editor. Connect events, game API methods, and logic blocks, then copy your generated JavaScript into your world.</p>
+                <div class="hero-actions">
+                    <a class="button" href="bloxdcodetool.html">Start building <span aria-hidden="true">→</span></a>
+                    <a class="button secondary" href="#how-it-works">See how it works</a>
+                </div>
+                <p class="fine-print">Free to use · Runs in your browser · No setup required</p>
+            </div>
+
+            <div class="preview" aria-label="Illustration of connected code blocks and generated JavaScript">
+                <div class="preview-bar">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    <span class="preview-label">YOUR WORLD LOGIC</span>
+                </div>
+                <div class="blocks">
+                    <div class="block event">Player Join <span class="block reporter">playerId</span></div>
+                    <div class="block control">if <span class="block reporter">isAlive(playerId)</span></div>
+                    <div class="block action">Send Message · <span class="block reporter">"Welcome!"</span></div>
+                </div>
+                <div class="code-preview">
+                    <span class="comment">// generated JavaScript</span><br>
+                    <span class="method">onPlayerJoin</span> = (playerId) =&gt; {<br>
+                    &nbsp;&nbsp;api.sendMessage(playerId,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Welcome!"</span>);<br>
+                    };
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="shell">
+                <div class="section-heading">
+                    <div class="eyebrow">Made for world creators</div>
+                    <h2>From idea to game logic, visually.</h2>
+                    <p>Get started with the building blocks you need to bring your custom world to life.</p>
+                </div>
+                <div class="features">
+                    <article class="feature">
+                        <div class="feature-icon" aria-hidden="true">▱</div>
+                        <h3>Start with events</h3>
+                        <p>Choose callbacks like player join, leave, and tick to decide when your logic runs.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="feature-icon" aria-hidden="true">⌘</div>
+                        <h3>Connect game APIs</h3>
+                        <p>Browse searchable API methods, operators, and control blocks in one toolbox.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="feature-icon" aria-hidden="true">{ }</div>
+                        <h3>Get readable JavaScript</h3>
+                        <p>See your code update as you build, then copy it into your Bloxd.io world.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="how-it-works">
+            <div class="shell">
+                <div class="section-heading">
+                    <div class="eyebrow">Three simple steps</div>
+                    <h2>Your next world starts here.</h2>
+                </div>
+                <div class="steps">
+                    <article class="step">
+                        <h3>Pick an event</h3>
+                        <p>Drag an event block onto the workspace to choose when your code runs.</p>
+                    </article>
+                    <article class="step">
+                        <h3>Build your logic</h3>
+                        <p>Connect actions, conditions, and values to describe what should happen.</p>
+                    </article>
+                    <article class="step">
+                        <h3>Copy your code</h3>
+                        <p>Use the generated JavaScript as the starting point for your custom world.</p>
+                    </article>
+                </div>
+                <div class="cta">
+                    <div>
+                        <h2>Ready to make something?</h2>
+                        <p>Open the editor and start connecting blocks.</p>
+                    </div>
+                    <a class="button" href="bloxdcodetool.html">Open the editor <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="shell">
+            <span>BloxdBlocks · A visual builder for world code</span>
+            <a href="docs/docs.html">Documentation</a>
+        </div>
+    </footer>
+</body>
+</html>
