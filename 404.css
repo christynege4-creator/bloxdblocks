@@ -1,0 +1,52 @@
+        .error-page {
+            min-height: calc(100vh - 163px);
+            display: grid;
+            place-items: center;
+            padding: 48px 0 64px;
+        }
+        .error-content {
+            width: min(100%, 650px);
+            text-align: center;
+            animation: fade-up .7s both;
+        }
+        .error-code {
+            display: block;
+            color: var(--green);
+            font: 800 clamp(100px, 24vw, 190px)/.9 Consolas, monospace;
+            letter-spacing: -.1em;
+            text-shadow: 0 0 42px rgba(0, 255, 136, .2);
+        }
+        .error-content h1 {
+            margin: 24px 0 12px;
+            font-size: clamp(30px, 6vw, 46px);
+            letter-spacing: -.04em;
+        }
+        .error-content p {
+            max-width: 470px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 17px;
+        }
+        .error-block {
+            width: fit-content;
+            margin: 28px auto 0;
+            padding: 10px 16px;
+            border: 1px solid var(--blue);
+            border-radius: 8px;
+            background: #102126;
+            color: #9ceeff;
+            font: 13px Consolas, monospace;
+            animation: block-in .55s .25s both;
+        }
+        .error-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+        .error-footer { text-align: center; }
+        @media (max-width: 420px) {
+            .error-page { min-height: calc(100vh - 145px); }
+            .error-actions .button { width: 100%; }
+        }
